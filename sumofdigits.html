@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sum of digits</title>
+</head>
+<body>
+	<script type="text/javascript">
+		n1=parseInt(prompt("Enter a number : "));
+		var n2,sum=0;
+		while(n1!=0)
+		{
+			n2=parseInt(n1%10);
+			sum=sum+n2;
+			n1=parseInt(n1/10);
+		}
+		document.write("The sum is : "+sum);
+	</script>
+
+</body>
+</html>

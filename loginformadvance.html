@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form Advanced</title>
+	<style type="text/css">
+		form
+		{
+			 height: 50%;
+    width: 30%;
+    margin: auto;
+    padding-left: 20px;
+    box-shadow: 5px 5px 18px black;
+    background-color:#6699CC;
+} 
+		}
+		table
+		{
+				
+			margin-top: 50px;
+		}
+		tr
+		{
+			font-size: 25px;
+			font-family: verdana;
+			margin-left: px;
+			margin-right: auto;
+			height:30px;
+			width:300px;
+			
+
+		}
+		input,textarea,select
+		{
+			width: 300px;
+			height: 30px;
+			border-radius:10px;
+		}
+		textarea
+		{
+			width: 297px;
+		}
+		select
+		{
+			width: 304px;
+		}
+		input[type=button],input[type=reset]
+		{
+			margin-left: 80px;
+			border-radius: 5px;
+			border: 1px solid black;
+		}
+		span
+		{
+			font-size: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<form method="post"  style="align:center;">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="" placeholder="Enter Username" id="r1" onBlur="vname()"><span id="v1" style="color: red"> *</span></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="Password" name="" placeholder="Enter Password" id="r2" onBlur="vpass()" disabled=""><span id="v2" style="color: red"> *</span></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="Email" name="" placeholder="Enter Email" id="r3" onBlur="vemail()" disabled=""><span id="v3" style="color: red"> *</span></td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td><input type="tel" name="" pattern="[1-9]{1}[0-9]{1}" maxlength="2" id="r4" placeholder="Enter Age" onBlur="vage()"><span id="v4"> </span></td>
+			</tr>
+			<tr>
+				<td>Mobile</td>
+				<td><input type="tel" name="" pattern="[0-9]{1}[1-9]{9}" id="r5" placeholder="Enter Mobile Number" maxlength="10" onBlur="vnum()" disabled=""><span id="v5" style="color: red"> *</span></td>
+			</tr>
+			<tr>
+				<td>City</td>
+				<td>
+					<select id="r6" onBlur="vcity()" disabled="">
+						<option value="0">--Select--</option>
+						<option value="1">Guwahati</option>
+						<option value="2">Amritsar</option>
+						<option value="3">Jalandhar</option>
+						<option value="4">Delhi</option>
+					</select><span id="v6" style="color: red"> *</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2">
+					<input type="button" name="" value="Submit" id="b1" onClick="validate()"><br>
+					<input type="button" name="" value="Reset" id="b2" onClick="reset1()">
+ 				</td>
+			</tr>
+		</table>
+	</form>
+
+	<script type="text/javascript">
+		function vname()
+		{
+			name=document.getElementById('r1').value;
+			if(name==0)
+			{
+				document.getElementById('v1').innerHTML=" *Name cannot be empty";
+				document.getElementById('v1').style.color="red"; //red should be passed as a string
+				document.getElementById('r2').disabled=true;
+				document.getElementById('r2').value="";
+			}
+			else if(isNaN(name)==0)
+			{
+				document.getElementById('v1').innerHTML=" *Please enter an appropriate name";
+				document.getElementById('v1').style.color="red";
+				document.getElementById('r2').disabled=true;
+				document.getElementById('r2').value="";
+			}
+			else
+			{
+				document.getElementById('v1').innerHTML="";
+				document.getElementById('r2').disabled=false;
+			}	
+		}
+		function vpass()
+		{
+			pass=document.getElementById('r2').value;
+			if(pass==0)
+			{
+				document.getElementById('v2').innerHTML=" *Password cannot be empty";
+				document.getElementById('v2').style.color="red"; //red should be passed as a string
+				document.getElementById('r3').disabled=true;
+				document.getElementById('r3').value="";
+			}
+			else if(pass.length<8)
+			{
+				document.getElementById('v2').innerHTML=" *Password must be of atleast 8 characters";
+				document.getElementById('v3').style.color="red";
+				document.getElementById('r3').disabled=true;
+				document.getElementById('r3').value="";
+			}
+			else
+			{
+				document.getElementById('v2').innerHTML="";
+				document.getElementById('r3').disabled=false;
+			}
+		}
+		function vemail()
+		{
+			email=document.getElementById('r3').value;
+			atposition=email.indexOf("@");
+			dotposition=email.lastIndexOf(".");
+			if (email==0) 
+			{
+				document.getElementById('v3').innerHTML=" *Email cannot be empty";
+				document.getElementById('v3').style.color="red";
+				document.getElementById('r5').disabled=true;
+				document.getElementById('r5').value="";
+			}
+			else if(atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length)
+			{
+				document.getElementById('v3').innerHTML=" *Please enter a valid email address";
+				document.getElementById('v3').style.color="red";
+				document.getElementById('r5').disabled=true;
+				document.getElementById('r5').value="";
+			}
+			else
+			{
+				document.getElementById('v3').innerHTML="";
+				document.getElementById('r5').disabled=false;
+			}
+		}
+		function vage()
+		{
+			age=document.getElementById('r4').value;
+			if (age>34) 
+			{
+				document.getElementById('v4').innerHTML=" Age should be less than 35";
+			}
+			else if(isNaN(age)==1)
+			{
+				document.getElementById('v4').innerHTML=" Age should be a positive integer";
+			}
+			else
+			{
+				document.getElementById('v4').innerHTML=" Age should be less than 35";
+			}
+		}
+		function vnum()
+		{
+			num=document.getElementById('r5').value;
+			if (num==0) 
+			{
+				document.getElementById('v5').innerHTML=" *Phone number cannot be empty";
+				document.getElementById('v5').style.color="red";
+				document.getElementById('r6').disabled=true;
+				document.getElementById('r6').value="";
+			}
+			else if(isNaN(num)==1)
+			{
+				document.getElementById('v5').innerHTML=" *It should be a phone number";
+				document.getElementById('v5').style.color="red";
+				document.getElementById('r6').disabled=true;
+				document.getElementById('r6').value="";
+			}
+			else if(num.length<10)
+			{
+				document.getElementById('v5').innerHTML=" *It should contain 10 digits";
+				document.getElementById('v5').style.color="red";
+				document.getElementById('r6').disabled=true;
+				document.getElementById('r6').value="";
+			}
+			else
+			{
+				document.getElementById('v5').innerHTML="";
+				document.getElementById('r6').disabled=false;
+			}
+		}
+		function vcity()
+		{
+			city=document.getElementById('r6').value;
+			if(city==0)
+			{
+				document.getElementById('v6').innerHTML=" *City cannot be empty";
+				document.getElementById('v6').style.color="red";
+			}
+			else
+			{
+				document.getElementById('v6').innerHTML="";
+			}
+		}
+		function reset1()
+		{
+			document.getElementById('r1').value="";
+			document.getElementById('r2').value="";
+			document.getElementById('r3').value="";
+			document.getElementById('r4').value="";
+			document.getElementById('r5').value="";
+
+			document.getElementById('r2').disabled=true;
+			document.getElementById('r3').disabled=true;
+			document.getElementById('r5').disabled=true;
+			document.getElementById('r6').disabled=true;
+
+			document.getElementById('v1').innerHTML=" *";
+			document.getElementById('v2').innerHTML=" *";
+			document.getElementById('v3').innerHTML=" *";
+			document.getElementById('v4').innerHTML=" Age should be less than 35";
+			document.getElementById('v5').innerHTML=" *";
+			document.getElementById('v6').innerHTML=" *";
+		}
+		function validate()
+		{
+			a=document.getElementById('r1').value;
+			b=document.getElementById('r2').value;
+			c=document.getElementById('r3').value;
+			d=document.getElementById('r5').value;
+			e=document.getElementById('r6').value;
+
+			if(a!=0 && b!=0 && c!=0 && d!=0 && e!=0)
+			{
+				alert("Login successful");
+			}
+			else
+			{
+				alert("Please fill in the details");
+			}
+		}
+	</script>
+</body>
+</html>

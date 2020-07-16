@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login form</title>
+	<style type="text/css">
+		form
+		{
+			border: 2px solid black;
+			width: 300px;
+			margin: auto;
+			padding: 10px;
+		}
+		h1
+		{
+			text-align: center;
+		}
+		input[type=submit],input[type=reset]
+		{
+			margin: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+		function sub() 
+		{
+			a=document.getElementById('t1').value;
+			b=document.getElementById('t2').value;
+			if((a=="admin") && (b=="admin"))
+			{
+				 open("palindrome.html");
+			}	
+			else
+			{
+				alert("Incorrect details.");
+			}
+		}
+	</script>
+
+</head>
+<body>
+	<h1>Login</h1>
+	<form method="post">
+		<h2>User - 
+		<input type="text" id="t1" required=""></h2>
+		<h2>Password - 	
+		<input type="Password" id="t2" required=""></h2>
+		<input type="submit" value="Submit" onclick="sub()"><input type="reset" name="" value="Cancel">
+	</form>
+</body>
+</html>

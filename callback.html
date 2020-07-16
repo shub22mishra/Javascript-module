@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback Function</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function demo()
+		{
+			document.write("Demo");
+		}
+		function show()
+		{
+			document.write("Show");
+		}
+		function display(call)
+		{
+			call();
+		}
+		display(demo);
+		display(show);
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array</title>
+	<script type="text/javascript">
+		function print1()
+		{
+			let x=document.getElementById('r1').value;
+			let y=document.getElementById('r2').value;
+			let z=document.getElementById('r3').value;
+			let a=["x","y","z"];
+			let i;
+			for(i=0;i<a.length;++i)
+			{
+				document.write(a[i]+"<br>");
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<form>
+		<table>
+			<tr>
+				<td>Enter 1st number : </td>
+				<td><input type="text" name="" id="r1"></td>
+			</tr>
+			<tr>
+				<td>Enter 2nd number : </td>
+				<td><input type="text" name="" id="r2"></td>
+			</tr>
+			<tr>
+				<td>Enter 3rd number : </td>
+				<td><input type="text" name="" id="r3"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" name="" value="Print" onclick="print1()"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
